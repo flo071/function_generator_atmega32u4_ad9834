@@ -9,10 +9,13 @@ int main(void){
     lcd_init();
     PORTB=0xFF;
     for(;;){
-    	void spi_init_master (void){
-    		DDRB=(1<<1)|(1<<2);								//MOSI & SCK as output
-    		SPCR=(1<<SPE)|(1<<MSTR)|(1<<SPR0)|(1<<SPIE);	//Enable SPI
-    		sei();											//Enable Interrupts
+    	void SPI_MasterInit(void){
+			DDR_SPI = (1<<DD_MOSI)|(1<<DD_SCK);
+			SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR0);
+		}
+		void SPI_MasterTransmit(char cData){
+			SPDR = cData;
+			while(!(SPSR & (1<<SPIF)));
 		}
     }
 	return 0;
