@@ -4,7 +4,7 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>
 #include "lcd/LCD.c"
-
+#include "keyboard/keyboard.c"
 int main(void){
     lcd_init();
     PORTB=0xFF;
