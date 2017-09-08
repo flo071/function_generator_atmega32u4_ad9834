@@ -3,7 +3,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
-#include "lcd/LCD.c"
+#include "LCD/lcd.c"
 #include "SPI/spi.c"
 //#include "keyboard/keyboard.c"
 
