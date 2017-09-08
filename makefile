@@ -1,6 +1,6 @@
 #Configuration
 MCU = atmega32u4
-F_CPU = 4000000UL
+F_CPU = 16000000UL
 FORMAT = ihex
 TARGET = main
 SRC = $(TARGET).c
@@ -99,13 +99,6 @@ sizeafter:
 	@if [ -f $(TARGET).elf ]; then echo; echo $(MSG_SIZE_AFTER); $(ELFSIZE); echo; fi
 gccversion : 
 	@$(CC) --version
-program: $(TARGET).hex $(TARGET).eep
-	$(AVRDUDE) $(AVRDUDE_FLAGS) $(AVRDUDE_WRITE_FLASH) $(AVRDUDE_WRITE_EEPROM)
-COFFCONVERT=$(OBJCOPY) --debugging \
---change-section-address .data-0x800000 \
---change-section-address .bss-0x800000 \
---change-section-address .noinit-0x800000 \
---change-section-address .eeprom-0x810000 
 coff: $(TARGET).elf
 	@echo
 	@echo $(MSG_COFF) $(TARGET).cof
