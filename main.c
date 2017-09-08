@@ -4,19 +4,21 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>
 #include "lcd/LCD.c"
-#include "keyboard/keyboard.c"
+//#include "keyboard/keyboard.c"
+
+void SPI_MasterInit(void){
+	DDRB = (1<<PB2)|(1<<PB1);
+	SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR0);
+}
+void SPI_MasterTransmit(char cData){
+	SPDR = cData;
+	while(!(SPSR & (1<<SPIF)));
+}
 int main(void){
+	PORTB=0xFF;
     lcd_init();
-    PORTB=0xFF;
     for(;;){
-    	void SPI_MasterInit(void){
-			DDR_SPI = (1<<DD_MOSI)|(1<<DD_SCK);
-			SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR0);
-		}
-		void SPI_MasterTransmit(char cData){
-			SPDR = cData;
-			while(!(SPSR & (1<<SPIF)));
-		}
+    	
     }
 	return 0;
 }
