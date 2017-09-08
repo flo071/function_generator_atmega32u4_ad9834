@@ -10,6 +10,10 @@
 int main(void){
 	PORTB=0xFF;
     lcd_init();
+    lcd_setcursor(6,2);
+    lcd_string("function");
+    lcd_setcursor(7,3):
+    lcd_string("generator");
     for(;;){
     	
     }
