@@ -8,6 +8,7 @@
 #include "keyboard/keyboard.c"
 
 int main(void){
+    spi_init();
     lcd_init();
     lcd_setcursor(6,2);
     lcd_string("function");
