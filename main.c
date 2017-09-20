@@ -36,6 +36,8 @@ int main(void){
                 lcd_clear();
             }
         }
+    spi_send(0);
+    _delay_ms(100);    
     }
 	return 0;
 }
