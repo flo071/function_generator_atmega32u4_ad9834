@@ -3,11 +3,11 @@
 #ifndef F_CPU
 #define F_CPU 8000000UL
 #endif
-#define LCD_PORT      PORTD
-#define LCD_DDR       DDRD
-#define LCD_DB        PD0
-#define LCD_RS        PD4
-#define LCD_EN        PD5
+#define LCD_PORT      PORTF
+#define LCD_DDR       DDRF
+#define LCD_DB        PF4
+#define LCD_RS        PF1
+#define LCD_EN        PF0
 #define LCD_BOOTUP_MS           15
 #define LCD_ENABLE_US           20
 #define LCD_WRITEDATA_US        46
