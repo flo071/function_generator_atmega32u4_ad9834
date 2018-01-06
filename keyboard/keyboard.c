@@ -9,9 +9,12 @@
 #define ZEILE4 0b11110111
 unsigned int out;
 
-int keyboard(out){
+int keyboardInit(){
 	DDRD=0b01110000;
 	PORTD=0b00001111;
+}
+
+int keyboard(out){
 
 	while(1){
 		out = 0;
