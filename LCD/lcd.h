@@ -21,15 +21,15 @@
  
 // 4 Bit LCD Datenbus DB4-DB7, das unterste Bit DB4 kann auf den Portbits 0..4 liegen
  
-//  LCD DB4-DB7 <-->  PORTC Bit PC0-PC3
+//  LCD DB4-DB7 <-->  PORTC Bit PF4 - PF7
 #define LCD_DB        PF4
  
 // LCD Steuersignale RS und EN
  
-//  LCD RS      <-->  PORTC Bit PC4     (RS: 0=Data, 1=Command)
+//  LCD RS      <-->  PORTF Bit PF1     (RS: 0=Data, 1=Command)
 #define LCD_RS        PF1
  
-//  LCD EN      <-->  PORTC Bit PC5     (EN: 1-Impuls für Daten)
+//  LCD EN      <-->  PORTF Bit PF0     (EN: 1-Impuls für Daten)
 #define LCD_EN        PF0
 
 #endif // LCD_PORTS
@@ -186,6 +186,5 @@ void lcd_command( uint8_t data );
  
 // Set DD RAM Address --------- 0b1xxxxxxx  (Display Data RAM)
 #define LCD_SET_DDADR           0x80
-
  
 #endif // LCD_ROUTINES_H

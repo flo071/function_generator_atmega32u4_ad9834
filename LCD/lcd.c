@@ -1,3 +1,4 @@
+#define F_CPU 16000000UL
 // Ansteuerung eines HD44780 kompatiblen LCD im 4-Bit-Interfacemodus
 // http://www.mikrocontroller.net/articles/HD44780
 // http://www.mikrocontroller.net/articles/AVR-GCC-Tutorial/LCD-Ansteuerung

@@ -1,17 +1,8 @@
+#define F_CPU 16000000UL
 #include <avr/io.h>
 #include <stdio.h>
 #include <util/delay.h>
-
-#define ROW1 	0b11111110
-#define ROW2 	0b11111101
-#define ROW3 	0b11111011
-#define ROW4 	0b11110111
-
-#define COLUMN3	0b00111111;
-#define COLUMN2	0b01011111;
-#define COLUMN1 0b01101111;
-
-unsigned int out;
+#include "keyboard.h"
 
 int keyboardInit(){
 	DDRD  = 0b01110000;
