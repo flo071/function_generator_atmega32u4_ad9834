@@ -18,7 +18,7 @@ int start(void){
 	
 	MCUCR =  (1<<JTD);
     MCUCR =  (1<<JTD);
-    /*//Setup Pins for SPI and indicator LED
+    //Setup Pins for SPI and indicator LED
     DDRB |=  (1<<PB0);  //FSYNC
 	DDRB |=  (1<<PB1);  //SCLK
 	DDRB |=  (1<<PB2);  //MOSI
@@ -35,7 +35,7 @@ int start(void){
 	SPCR &= ~(1<<CPHA); //sclk phase 
 	SPCR |=  (1<<SPR1); //sclk prescaler /64
 	SPCR |=  (1<<SPR0); //sclk prescaler /64
-	SPSR |=  (1<<SPI2X);//sclk prescaler /64*/
+	SPSR |=  (1<<SPI2X);//sclk prescaler /64
 	lcd_init();
 	keyboardInit();
 	lcd_setcursor(1,0);
@@ -129,46 +129,144 @@ int k1_sig(void){
 	return 0;
 }
 int k2_sig(void){
+	SPDR = 0b00110001;	//first 8 bit
+	PORTB &= ~(1<<PB4); //SlaveSelect set low
+	_delay_ms(1);		//wait for SS to be set to low
+	SPCR |=  (1<<SPE); //SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the first 8bit to be send
+	SPDR = 0b10101000;	//second 8 bit
+	SPCR |=  (1<<SPE); 	//SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the last 8bit to be send
+	PORTB |= (1<<PB4); 	//SlaveSelect set high
 	menu();
 	return 0;
 }
 int k5_sig(void){
+	SPDR = 0b00110001;	//first 8 bit
+	PORTB &= ~(1<<PB4); //SlaveSelect set low
+	_delay_ms(1);		//wait for SS to be set to low
+	SPCR |=  (1<<SPE); //SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the first 8bit to be send
+	SPDR = 0b10101000;	//second 8 bit
+	SPCR |=  (1<<SPE); 	//SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the last 8bit to be send
+	PORTB |= (1<<PB4); 	//SlaveSelect set high
 	menu();
 	return 0;
 }
 int k10_sig(void){
+	SPDR = 0b00110001;	//first 8 bit
+	PORTB &= ~(1<<PB4); //SlaveSelect set low
+	_delay_ms(1);		//wait for SS to be set to low
+	SPCR |=  (1<<SPE); //SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the first 8bit to be send
+	SPDR = 0b10101000;	//second 8 bit
+	SPCR |=  (1<<SPE); 	//SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the last 8bit to be send
+	PORTB |= (1<<PB4); 	//SlaveSelect set high
 	menu();
 	return 0;
 }
 int k50_sig(void){
+	SPDR = 0b00110001;	//first 8 bit
+	PORTB &= ~(1<<PB4); //SlaveSelect set low
+	_delay_ms(1);		//wait for SS to be set to low
+	SPCR |=  (1<<SPE); //SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the first 8bit to be send
+	SPDR = 0b10101000;	//second 8 bit
+	SPCR |=  (1<<SPE); 	//SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the last 8bit to be send
+	PORTB |= (1<<PB4); 	//SlaveSelect set high
 	menu();
 	return 0;
 }
 int k100_sig(void){
+	SPDR = 0b00110001;	//first 8 bit
+	PORTB &= ~(1<<PB4); //SlaveSelect set low
+	_delay_ms(1);		//wait for SS to be set to low
+	SPCR |=  (1<<SPE); //SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the first 8bit to be send
+	SPDR = 0b10101000;	//second 8 bit
+	SPCR |=  (1<<SPE); 	//SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the last 8bit to be send
+	PORTB |= (1<<PB4); 	//SlaveSelect set high
 	menu();
 	return 0;
 }
 int k500_sig(void){
+	SPDR = 0b00110001;	//first 8 bit
+	PORTB &= ~(1<<PB4); //SlaveSelect set low
+	_delay_ms(1);		//wait for SS to be set to low
+	SPCR |=  (1<<SPE); //SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the first 8bit to be send
+	SPDR = 0b10101000;	//second 8 bit
+	SPCR |=  (1<<SPE); 	//SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the last 8bit to be send
+	PORTB |= (1<<PB4); 	//SlaveSelect set high
 	menu();
 	return 0;
 }
 int M1_sig(void){
+	SPDR = 0b00110001;	//first 8 bit
+	PORTB &= ~(1<<PB4); //SlaveSelect set low
+	_delay_ms(1);		//wait for SS to be set to low
+	SPCR |=  (1<<SPE); //SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the first 8bit to be send
+	SPDR = 0b10101000;	//second 8 bit
+	SPCR |=  (1<<SPE); 	//SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the last 8bit to be send
+	PORTB |= (1<<PB4); 	//SlaveSelect set high
 	menu();
 	return 0;
 }
 int M10_sig(void){
+	SPDR = 0b00110001;	//first 8 bit
+	PORTB &= ~(1<<PB4); //SlaveSelect set low
+	_delay_ms(1);		//wait for SS to be set to low
+	SPCR |=  (1<<SPE); //SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the first 8bit to be send
+	SPDR = 0b10101000;	//second 8 bit
+	SPCR |=  (1<<SPE); 	//SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the last 8bit to be send
+	PORTB |= (1<<PB4); 	//SlaveSelect set high
 	menu();
 	return 0;
 }
 int M20_sig(void){
+	SPDR = 0b00110001;	//first 8 bit
+	PORTB &= ~(1<<PB4); //SlaveSelect set low
+	_delay_ms(1);		//wait for SS to be set to low
+	SPCR |=  (1<<SPE); //SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the first 8bit to be send
+	SPDR = 0b10101000;	//second 8 bit
+	SPCR |=  (1<<SPE); 	//SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the last 8bit to be send
+	PORTB |= (1<<PB4); 	//SlaveSelect set high
 	menu();
 	return 0;
 }
-int M36_sig(void){
+int M36_sig(void){SPDR = 0b00110001;	//first 8 bit
+	PORTB &= ~(1<<PB4); //SlaveSelect set low
+	_delay_ms(1);		//wait for SS to be set to low
+	SPCR |=  (1<<SPE); //SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the first 8bit to be send
+	SPDR = 0b10101000;	//second 8 bit
+	SPCR |=  (1<<SPE); 	//SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the last 8bit to be send
+	PORTB |= (1<<PB4); 	//SlaveSelect set high
 	menu();
 	return 0;
 }
 int reset_sig(void){
+	SPDR = 0b00000000;	//first 8 bit
+	PORTB &= ~(1<<PB4); //SlaveSelect set low
+	_delay_ms(1);		//wait for SS to be set to low
+	SPCR |=  (1<<SPE); //SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the first 8bit to be send
+	SPDR = 0b00000000;	//second 8 bit
+	SPCR |=  (1<<SPE); 	//SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the last 8bit to be send
+	PORTB |= (1<<PB4); 	//SlaveSelect set high
 	menu();
 	return 0;
 }
