@@ -4,13 +4,9 @@ F_CPU = 16000000UL
 FORMAT = ihex
 TARGET = main
 SRC = $(TARGET).c
-ASRC = 
 OPT = s
 DEBUG = dwarf-2
-EXTRAINCDIRS = 
 CSTANDARD = -std=gnu99
-CDEFS =
-CINCS =
 CFLAGS = -g$(DEBUG)
 CFLAGS += $(CDEFS) $(CINCS)
 CFLAGS += -O$(OPT)
@@ -27,9 +23,7 @@ PRINTF_LIB_FLOAT = -Wl,-u,vfprintf -lprintf_flt
 PRINTF_LIB = 
 SCANF_LIB_MIN = -Wl,-u,vfscanf -lscanf_min
 SCANF_LIB_FLOAT = -Wl,-u,vfscanf -lscanf_flt
-SCANF_LIB = 
 MATH_LIB = -lm
-EXTMEMOPTS =
 LDFLAGS = -Wl,-Map=$(TARGET).map,--cref
 LDFLAGS += $(EXTMEMOPTS)
 LDFLAGS += $(PRINTF_LIB) $(SCANF_LIB) $(MATH_LIB)
