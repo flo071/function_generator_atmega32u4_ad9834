@@ -82,28 +82,96 @@ int menu(void){
 			char out_d[30];
 			itoa(keyboard(), out_d, 30);
 			lcd_string(out_d);
-			_delay_ms(2000);
-			signals();
+			if(keyboard==1){
+				k1_sig();
+			} else if(keyboard==2){
+				k2_sig();
+			} else if(keyboard==3){
+				k5_sig();
+			} else if(keyboard==4){
+				k10_sig();
+			} else if(keyboard==5){
+				k50_sig();
+			} else if(keyboard==6){
+				k100_sig();
+			} else if(keyboard==7){
+				k500_sig();
+			} else if(keyboard==8){
+				M1_sig();
+			} else if(keyboard==9){
+				M10_sig();
+			} else if(keyboard==10){
+				M20_sig();
+			} else if(keyboard==11){
+				M36_sig();
+			} else if(keyboard==12){
+				reset_sig();
+			} 
 		}
 	}
+	return 0;
 	//TODO import and rewrite keyboard functions and build a menu for navigating with it
 }
 
-int signals(void){
-	lcd_setcursor(0,0);
-	lcd_string("Menu");	
-	/*//TODO write code for AD9834 to send out the right signals (SPI)
-	SPDR = 0b00110001;	//DAC settings; Set LOUT to low, only OUTA active, only load DAC A data register
-	PORTB &= ~(1<<PB4); //SlaveSelect set low
-	_delay_ms(1);	//wait for SS to be set to low
-	SPCR |=  (1<<SPE); //SPI enable (start data tranfer)
-	_delay_ms(10);	//wait for the first 8bit to be send
 
-	//if(SPIF == 1)PORTB |= (1<<PD7); _delay_ms(50); //test if SPIF works
-
-	SPDR = 0b10101000;	//DAC data for the lovel of the output voltage
-	SPCR |=  (1<<SPE); //SPI enable (start data tranfer)
-	_delay_ms(10);	//wait for the last 8bit to be send
-	PORTB |= (1<<PB4); //SlaveSelect set high*/
+/*//TODO write code for AD9834 to send out the right signals (SPI)
+SPDR = 0b00110001;	//DAC settings; Set LOUT to low, only OUTA active, only load DAC A data register
+PORTB &= ~(1<<PB4); //SlaveSelect set low
+_delay_ms(1);	//wait for SS to be set to low
+SPCR |=  (1<<SPE); //SPI enable (start data tranfer)
+_delay_ms(10);	//wait for the first 8bit to be send
+//if(SPIF == 1)PORTB |= (1<<PD7); _delay_ms(50); //test if SPIF works
+SPDR = 0b10101000;	//DAC data for the lovel of the output voltage
+SPCR |=  (1<<SPE); //SPI enable (start data tranfer)
+_delay_ms(10);	//wait for the last 8bit to be send
+PORTB |= (1<<PB4); //SlaveSelect set high*/
+int k1_sig(void){
+	menu();
+	return 0;
 }
+int k2_sig(void){
+	menu();
+	return 0;
+}
+int k5_sig(void){
+	menu();
+	return 0;
+}
+int k10_sig(void){
+	menu();
+	return 0;
+}
+int k50_sig(void){
+	menu();
+	return 0;
+}
+int k100_sig(void){
+	menu();
+	return 0;
+}
+int k500_sig(void){
+	menu();
+	return 0;
+}
+int M1_sig(void){
+	menu();
+	return 0;
+}
+int M10_sig(void){
+	menu();
+	return 0;
+}
+int M20_sig(void){
+	menu();
+	return 0;
+}
+int M36_sig(void){
+	menu();
+	return 0;
+}
+int reset_sig(void){
+	menu();
+	return 0;
+}
+
 
