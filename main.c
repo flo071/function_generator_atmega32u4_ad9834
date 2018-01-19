@@ -78,33 +78,33 @@ int menu(void){
 		lcd_setcursor(13,3);
 		_delay_ms(1000);
 		keyboard();
-		if(keyboard>0){
+		if(keyboard()>0){
 			char out_d[30];
 			itoa(keyboard(), out_d, 30);
 			lcd_string(out_d);
-			if(keyboard==1){
+			if(keyboard()==1){
 				k1_sig();
-			} else if(keyboard==2){
+			} else if(keyboard()==2){
 				k2_sig();
-			} else if(keyboard==3){
+			} else if(keyboard()==3){
 				k5_sig();
-			} else if(keyboard==4){
+			} else if(keyboard()==4){
 				k10_sig();
-			} else if(keyboard==5){
+			} else if(keyboard()==5){
 				k50_sig();
-			} else if(keyboard==6){
+			} else if(keyboard()==6){
 				k100_sig();
-			} else if(keyboard==7){
+			} else if(keyboard()==7){
 				k500_sig();
-			} else if(keyboard==8){
+			} else if(keyboard()==8){
 				M1_sig();
-			} else if(keyboard==9){
+			} else if(keyboard()==9){
 				M10_sig();
-			} else if(keyboard==10){
+			} else if(keyboard()==10){
 				M20_sig();
-			} else if(keyboard==11){
+			} else if(keyboard()==11){
 				M36_sig();
-			} else if(keyboard==12){
+			} else if(keyboard()==12){
 				reset_sig();
 			} 
 		}
