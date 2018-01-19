@@ -10,12 +10,10 @@ int main(void){
 	start();
     while(1){
     	menu();
-    	//signals();
     }
 }
 
 int start(void){
-	
 	MCUCR =  (1<<JTD);
     MCUCR =  (1<<JTD);
     //Setup Pins for SPI and indicator LED
