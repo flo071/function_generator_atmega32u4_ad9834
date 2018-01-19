@@ -114,18 +114,17 @@ int menu(void){
 }
 
 
-/*//TODO write code for AD9834 to send out the right signals (SPI)
-SPDR = 0b00110001;	//DAC settings; Set LOUT to low, only OUTA active, only load DAC A data register
-PORTB &= ~(1<<PB4); //SlaveSelect set low
-_delay_ms(1);	//wait for SS to be set to low
-SPCR |=  (1<<SPE); //SPI enable (start data tranfer)
-_delay_ms(10);	//wait for the first 8bit to be send
-//if(SPIF == 1)PORTB |= (1<<PD7); _delay_ms(50); //test if SPIF works
-SPDR = 0b10101000;	//DAC data for the lovel of the output voltage
-SPCR |=  (1<<SPE); //SPI enable (start data tranfer)
-_delay_ms(10);	//wait for the last 8bit to be send
-PORTB |= (1<<PB4); //SlaveSelect set high*/
+//TODO write code for AD9834 to send out the right signals (SPI)
 int k1_sig(void){
+	SPDR = 0b00110001;	//first 8 bit
+	PORTB &= ~(1<<PB4); //SlaveSelect set low
+	_delay_ms(1);		//wait for SS to be set to low
+	SPCR |=  (1<<SPE); //SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the first 8bit to be send
+	SPDR = 0b10101000;	//second 8 bit
+	SPCR |=  (1<<SPE); 	//SPI enable (start data tranfer)
+	_delay_ms(10);		//wait for the last 8bit to be send
+	PORTB |= (1<<PB4); 	//SlaveSelect set high
 	menu();
 	return 0;
 }
