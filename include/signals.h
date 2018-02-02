@@ -24,3 +24,4 @@ Define strings for signals
 #define M20_2  0b10101000
 #define M36_1  0b00110001
 #define M36_2  0b10101000
+#define RESET  0b00000000

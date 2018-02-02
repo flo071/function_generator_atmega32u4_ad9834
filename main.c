@@ -261,12 +261,12 @@ int M36_sig(void){
 	return 0;
 }
 int reset_sig(void){
-	SPDR = 0b00000000;	//first 8 bit
+	SPDR = RESET;	//first 8 bit
 	PORTB &= ~(1<<PB4); //SlaveSelect set low
 	_delay_ms(1);		//wait for SS to be set to low
 	SPCR |=  (1<<SPE); //SPI enable (start data tranfer)
 	_delay_ms(10);		//wait for the first 8bit to be send
-	SPDR = 0b00000000;	//second 8 bit
+	SPDR = RESET;	//second 8 bit
 	SPCR |=  (1<<SPE); 	//SPI enable (start data tranfer)
 	_delay_ms(10);		//wait for the last 8bit to be send
 	PORTB |= (1<<PB4); 	//SlaveSelect set high
