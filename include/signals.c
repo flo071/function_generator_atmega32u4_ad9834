@@ -14,12 +14,12 @@ int k1_sig(void){
 	return 0;
 }
 int k2_sig(void){
-	SPDR = k2_1;	//first 8 bit
+	SPDR = k2_1;		//first 8 bit
 	PORTB &= ~(1<<PB4); //SlaveSelect set low, to let ad9834 know we want to send something
 	_delay_ms(1);		//wait for SS to be set to low
-	SPCR |=  (1<<SPE); //SPI enable (start data tranfer)
+	SPCR |=  (1<<SPE); 	//SPI enable (start data tranfer)
 	_delay_ms(10);		//wait for the first 8bit to be send
-	SPDR = k2_2;	//second 8 bit
+	SPDR = k2_2;		//second 8 bit
 	SPCR |=  (1<<SPE); 	//SPI enable (start data tranfer)
 	_delay_ms(10);		//wait for the last 8bit to be send
 	PORTB |= (1<<PB4); 	//SlaveSelect set high, to start ad9834 output
