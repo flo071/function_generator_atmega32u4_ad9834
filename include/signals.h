@@ -6,6 +6,8 @@ AD9834 needs 16bit input to setup the signal
 those bits are defined in this file
 */
 
+
+//TODO correct strings for the signals
 #define k1_1   0b00110001 //first  8 bits of string for 1kHz Signal
 #define k1_2   0b10101000 //second 8 bits of string for 1kHz Signal
 #define k2_1   0b00110001 //first  8 bits of string for 2kHz Signal
