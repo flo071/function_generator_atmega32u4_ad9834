@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
-#include "LCD/lcd.c"
-#include "keyboard/keyboard.c"
+#include "include/LCD/lcd.c"
+#include "include/keyboard/keyboard.c"
 
 int main(void){
 	start();
@@ -34,6 +34,7 @@ int start(void){
 	SPCR |=  (1<<SPR1); //sclk prescaler /64
 	SPCR |=  (1<<SPR0); //sclk prescaler /64
 	SPSR |=  (1<<SPI2X);//sclk prescaler /64
+	//LCD Init/Setup
 	lcd_init();
 	keyboardInit();
 	lcd_setcursor(1,0);
@@ -47,6 +48,7 @@ int menu(void){
 	lcd_string("Menu");
 	_delay_ms(4000); 	//Timeout to show this
 	lcd_clear();
+	//Show output options and make it selectable
 	while(1){
 		//column 1
 		lcd_setcursor(0,0);
@@ -108,7 +110,6 @@ int menu(void){
 		}
 	}
 	return 0;
-	//TODO import and rewrite keyboard functions and build a menu for navigating with it
 }
 
 
