@@ -13,7 +13,7 @@ Created by flo071
 int main(void){
 	start();
     while(1){
-    	menu();
+    	signalselect();
     }
 }
 
@@ -47,9 +47,35 @@ int start(void){
 	lcd_clear();
 }
 
-int menu(void){
+int signalselect(void){
 	lcd_setcursor(0,0);
 	lcd_string("Menu");
+	_delay_ms(4000); 	//Timeout to show this
+	lcd_clear();
+	//Show output options and make it selectable
+	while(1){
+		//column 1
+		lcd_setcursor(0,0);
+		lcd_string("Select the signal");
+		lcd_setcursor(0,1);
+		lcd_string("1: Sine");
+		lcd_setcursor(0,2);
+		lcd_string("2: Triangle");
+		keyboard();
+		if(keyboard()>0){
+			if(keyboard()==1){
+				menu_sin();
+			} else if(keyboard()==2){
+				menu_tri();
+			}
+		}
+	}
+	return 0;
+}
+
+int menu_sin(void){
+	lcd_setcursor(0,0);
+	lcd_string("Menu for Sine");
 	_delay_ms(4000); 	//Timeout to show this
 	lcd_clear();
 	//Show output options and make it selectable
@@ -87,27 +113,96 @@ int menu(void){
 			itoa(keyboard(), out_d, 30);
 			lcd_string(out_d);
 			if(keyboard()==1){
-				k1_sig();
+				sk1_sig();
 			} else if(keyboard()==2){
-				k2_sig();
+				sk2_sig();
 			} else if(keyboard()==3){
-				k5_sig();
+				sk5_sig();
 			} else if(keyboard()==4){
-				k10_sig();
+				sk10_sig();
 			} else if(keyboard()==5){
-				k50_sig();
+				sk50_sig();
 			} else if(keyboard()==6){
-				k100_sig();
+				sk100_sig();
 			} else if(keyboard()==7){
-				k500_sig();
+				sk500_sig();
 			} else if(keyboard()==8){
-				M1_sig();
+				sM1_sig();
 			} else if(keyboard()==9){
-				M10_sig();
+				sM10_sig();
 			} else if(keyboard()==10){
-				M20_sig();
+				sM20_sig();
 			} else if(keyboard()==11){
-				M36_sig();
+				sM36_sig();
+			} else if(keyboard()==12){
+				reset_sig();
+			} 
+		}
+	}
+	return 0;
+}
+
+int menu_tri(void){
+	lcd_setcursor(0,0);
+	lcd_string("Menu for Sine");
+	_delay_ms(4000); 	//Timeout to show this
+	lcd_clear();
+	//Show output options and make it selectable
+	while(1){
+		//column 1
+		lcd_setcursor(0,0);
+		lcd_string("1: 1k");
+		lcd_setcursor(0,1);
+		lcd_string("2: 2k");
+		lcd_setcursor(0,2);
+		lcd_string("3: 5k");
+		lcd_setcursor(0,3);
+		lcd_string("4:10k");
+		//column 2
+		lcd_setcursor(6,0);
+		lcd_string("5: 50k");
+		lcd_setcursor(6,1);
+		lcd_string("6:100k");
+		lcd_setcursor(6,2);
+		lcd_string("7:500k");
+		lcd_setcursor(6,3);
+		lcd_string("8:  1M");
+		//column 3
+		lcd_setcursor(13,0);
+		lcd_string("9:10M");
+		lcd_setcursor(13,1);
+		lcd_string("*:20M");
+		lcd_setcursor(13,2);
+		lcd_string("0:36M");
+		lcd_setcursor(13,3);
+		_delay_ms(1000);
+		keyboard();
+		if(keyboard()>0){
+			char out_d[30];
+			itoa(keyboard(), out_d, 30);
+			lcd_string(out_d);
+			if(keyboard()==1){
+				tk1_sig();
+			} else if(keyboard()==2){
+				tk2_sig();
+			} else if(keyboard()==3){
+				tk5_sig();
+			} else if(keyboard()==4){
+				tk10_sig();
+			} else if(keyboard()==5){
+				tk50_sig();
+			} else if(keyboard()==6){
+				tk100_sig();
+			} else if(keyboard()==7){
+				tk500_sig();
+			} else if(keyboard()==8){
+				tM1_sig();
+			} else if(keyboard()==9){
+				tM10_sig();
+			} else if(keyboard()==10){
+				tM20_sig();
+			} else if(keyboard()==11){
+				tM36_sig();
 			} else if(keyboard()==12){
 				reset_sig();
 			} 
