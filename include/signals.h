@@ -23,43 +23,47 @@ Bits (right to left):
 		14. B28
 		15. always 0
 		16. always 0
+
+		| OPBITEN | MODE |  OUTPUT  |
+		|    0    |  0   |  Sine    |
+		|    0    |  1   | Triangle |
 */
 
 
 //TODO correct strings for the signals
 //Sin
 #define sk1_1   0b00110001 //first  8 bits of string for 1kHz Signal
-#define sk1_2   0b10101000 //second 8 bits of string for 1kHz Signal
+#define sk1_2   0b10001000 //second 8 bits of string for 1kHz Signal
 
 #define sk2_1   0b00110001 //first  8 bits of string for 2kHz Signal
-#define sk2_2   0b10101000 //second 8 bits of string for 2kHz Signal
+#define sk2_2   0b10001000 //second 8 bits of string for 2kHz Signal
 
 #define sk5_1   0b00110001 //first  8 bits of string for 5kHz Signal
-#define sk5_2   0b10101000 //second 8 bits of string for 5kHz Signal
+#define sk5_2   0b10001000 //second 8 bits of string for 5kHz Signal
 
 #define sk10_1  0b00110001 //first  8 bits of string for 10kHz Signal
-#define sk10_2  0b10101000 //second 8 bits of string for 10kHz Signal
+#define sk10_2  0b10001000 //second 8 bits of string for 10kHz Signal
 
 #define sk50_1  0b00110001 //first  8 bits of string for 50kHz Signal
-#define sk50_2  0b10101000 //second 8 bits of string for 50kHz Signal
+#define sk50_2  0b10001000 //second 8 bits of string for 50kHz Signal
 
 #define sk100_1 0b00110001 //first  8 bits of string for 100kHz Signal
-#define sk100_2 0b10101000 //second 8 bits of string for 100kHz Signal
+#define sk100_2 0b10001000 //second 8 bits of string for 100kHz Signal
 
 #define sk500_1 0b00110001 //first  8 bits of string for 500kHz Signal
-#define sk500_2 0b10101000 //second 8 bits of string for 500kHz Signal
+#define sk500_2 0b10001000 //second 8 bits of string for 500kHz Signal
 
 #define sM1_1   0b00110001 //first  8 bits of string for 1MHz Signal
-#define sM1_2   0b10101000 //second 8 bits of string for 1MHz Signal
+#define sM1_2   0b10001000 //second 8 bits of string for 1MHz Signal
 
 #define sM10_1  0b00110001 //first  8 bits of string for 10MHz Signal
-#define sM10_2  0b10101000 //second 8 bits of string for 10MHz Signal
+#define sM10_2  0b10001000 //second 8 bits of string for 10MHz Signal
 
 #define sM20_1  0b00110001 //first  8 bits of string for 20MHz Signal
-#define sM20_2  0b10101000 //second 8 bits of string for 20MHz Signal
+#define sM20_2  0b10001000 //second 8 bits of string for 20MHz Signal
 
 #define sM36_1  0b00110001 //first  8 bits of string for 36MHz Signal
-#define sM36_2  0b10101000 //second 8 bits of string for 36MHz Signal
+#define sM36_2  0b10001000 //second 8 bits of string for 36MHz Signal
 
 //Tri
 #define tk1_1   0b00110001 //first  8 bits of string for 1kHz Signal
