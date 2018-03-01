@@ -12,7 +12,7 @@ int main(void){
 	start();
     while(1){
 	if(x==0){
-    		k1_sig();
+    		M1_sig();
 	} else{
 		//do nothing
 	}
@@ -42,7 +42,7 @@ int start(void){
 	SPSR |=  (1<<SPI2X);//sclk prescaler /64
 }
 
-int k1_sig(){
+int M1_sig(){
 	x=1;
 	SPDR = 0b00000011;	//first 8 bit
 	PORTB &= ~(1<<PB4); 	//SlaveSelect set low, to let ad9834 know we want to send something

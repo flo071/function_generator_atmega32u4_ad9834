@@ -1,6 +1,6 @@
 # This should be the Software for an function generator.
 
-1kHz Signal output for Testing
+1MHz Signal output for Testing
 
 ## Hardware:
 
