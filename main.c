@@ -44,15 +44,15 @@ int start(void){
 
 int k1_sig(){
 	x=1;
-	SPDR = 0b00011010;	//first 8 bit
+	SPDR = 0b00000011;	//first 8 bit
 	PORTB &= ~(1<<PB4); 	//SlaveSelect set low, to let ad9834 know we want to send something
 	_delay_ms(1);		//wait for SS to be set to low
 	SPCR |=  (1<<SPE); 	//SPI enable (start data tranfer)
 	_delay_ms(10);		//wait for the first 8bit to be send
-	SPDR = 0b01110110;	//second 8 bit
+	SPDR = 0b10011101;	//second 8 bit
 	SPCR |=  (1<<SPE); 	//SPI enable (start data tranfer)
 	_delay_ms(10);		//wait for the last 8bit to be send
-	SPDR = 0b00000101;	//third 8 bit
+	SPDR = 0b00110110;	//third 8 bit
 	PORTB &= ~(1<<PB4); 	//SlaveSelect set low, to let ad9834 know we want to send something
 	_delay_ms(1);		//wait for SS to be set to low
 	SPCR |=  (1<<SPE); 	//SPI enable (start data tranfer)
