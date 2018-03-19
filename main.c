@@ -6,12 +6,18 @@ Created by flo071
 #include <stdio.h>
 #include <util/delay.h>
 
+int x=0;
+
 int main(void){
 	init();
-    while(1){
+
+    while(x=0){
     	M1_sig();
 		
     }
+while(x=1){
+    //do nothing
+}
 }
 
 int init(void){
@@ -38,6 +44,7 @@ int init(void){
 }
 
 int M1_sig(){
+	x=1;
 
 	//control register write 
 	SPDR = 0b00000001;
@@ -127,4 +134,6 @@ int M1_sig(){
 	SPCR |=  (1<<SPE); 	//SPI enable (start data tranfer)
 	_delay_ms(10);		//wait for the third 8 bit to be send
 	PORTB |= (1<<PB7); 	//SlaveSelect set high
+
+    return x;
 }
