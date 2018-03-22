@@ -27,10 +27,10 @@ int lcd_init(void){
 int menu(){
 	lcd_setcursor(0,0);
 	lcd_string("Wave             [1]");
-	lcd_setcursor(0,0);
+	lcd_setcursor(0,1);
 	lcd_string("Frequency        [2]");
-	lcd_setcursor(0,0);
+	lcd_setcursor(0,2);
 	lcd_string("Amplitude        [3]");
-	lcd_setcursor(0,0);
+	lcd_setcursor(0,3);
 	lcd_string("Offset           [4]");
 }
