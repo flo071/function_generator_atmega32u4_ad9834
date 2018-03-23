@@ -24,7 +24,7 @@ int keypad_display_test(){
 		lcd_string("You pressed a key");
 	}
 	else{
-		lcd_string("No key pressed")
+		lcd_string("No key pressed");
 	}
 }
 
