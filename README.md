@@ -1,6 +1,6 @@
-# This should be the Software for an function generator.
+# This will be the Software for an function generator.
 
-1MHz Signal output for Testing
+master branch is for releases only, development happens in other branches
 
 ## Hardware:
 
@@ -8,6 +8,6 @@ Atmega32u4	micro controller
 
 AD9834 		DDS Chip
 
-A simple 3x4 matrix keyboard
+A simple 4x4 matrix keyboard
 
-LCD (model follows)
+LCD Display
