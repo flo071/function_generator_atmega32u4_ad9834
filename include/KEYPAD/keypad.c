@@ -42,7 +42,7 @@ int keypad(out){
 			out=out+8;		//key 8
 		}
 		if((PIND | ROW4)==ROW4){
-			out=out+0;		//key 0
+			out=out+11;		//key 0
 		}
 
 		PORTD=COLUMN3;	//column 3
