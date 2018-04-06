@@ -1,7 +1,7 @@
 /*
 Created by flo071
 
-SPI needs to be configured to send LSB first
+SPI needs to be configured to send MSB first
 Only using Frequency 0 and Phase 0 Register here
 
 Selecting what register to write:

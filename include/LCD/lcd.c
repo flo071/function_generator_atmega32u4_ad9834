@@ -10,8 +10,8 @@ Modified by flo071
 #include "lcd.h"
 #include <util/delay.h>
  
-int lcd_init(void){
-    //LCD Init/Setup
+//LCD Init/Setup
+int LCD_setup(void){
     lcd_init();
     lcd_setcursor(1,0);
     lcd_string("Function Generator");

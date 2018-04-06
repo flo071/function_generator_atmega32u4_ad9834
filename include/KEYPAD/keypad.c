@@ -7,7 +7,7 @@ Created by flo071
 #include <util/delay.h>
 #include "keypad.h"
 
-int keypadInit(){
+int KEYPAD_setup(){
 	DDRD  = REGen;
 	PORTD = PORTen;
 }

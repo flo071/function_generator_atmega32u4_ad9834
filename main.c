@@ -10,9 +10,17 @@ Created by flo071
 
 int value=0;
 
+int setup(void){
+	//Disable JTAG
+    MCUCR =  (1<<JTD);
+    MCUCR =  (1<<JTD);
+}
+
 int main(void){
-	lcd_init();
-	keypad_init();
+	setup();
+	SPI_setup();
+	LCD_setup();
+	KEYPAD_setup();
     while(1){
     	keypad_display_test();
     }
@@ -23,9 +31,9 @@ int keypad_display_test(){
 	value = keypad();
 	switch(value){
 		case  0: lcd_string("   No key pressed.  ");
-		case  1: lcd_string(" 1 has been pressed.");
-		case  2: lcd_string(" 2 has been pressed.");
-		case  3: lcd_string(" 3 has been pressed.");
+		case  1: signal_sin();
+		case  2: signal_tri();
+		case  3: signal_rect();
 		case  4: lcd_string(" 4 has been pressed.");
 		case  5: lcd_string(" 5 has been pressed.");
 		case  6: lcd_string(" 6 has been pressed.");
