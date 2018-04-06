@@ -22,7 +22,7 @@ int keypad_display_test(){
 	keypad();
 	value = keypad();
 	switch(value){
-		case  0: lcd_string("No key pressed.");
+		case  0: lcd_string("   No key pressed.  ");
 		case  1: lcd_string(" 1 has been pressed.");
 		case  2: lcd_string(" 2 has been pressed.");
 		case  3: lcd_string(" 3 has been pressed.");
