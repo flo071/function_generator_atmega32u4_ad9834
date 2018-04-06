@@ -30,10 +30,10 @@ int keypad_display_test(){
 	keypad();
 	value = keypad();
 	switch(value){
-		case  0: lcd_string("   No key pressed.  ");
-		case  1: signal_sin();
-		case  2: signal_tri();
-		case  3: signal_rect();
+		case  0: lcd_string(" 0 has been pressed.");
+		case  1: lcd_string("Sin output"); signal_sin();
+		case  2: lcd_string("Tri output"); signal_tri();
+		case  3: lcd_string("Rect output"); signal_rect();
 		case  4: lcd_string(" 4 has been pressed.");
 		case  5: lcd_string(" 5 has been pressed.");
 		case  6: lcd_string(" 6 has been pressed.");
