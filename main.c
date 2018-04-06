@@ -7,6 +7,7 @@ Created by flo071
 #include <util/delay.h>
 #include "include/LCD/lcd.c"
 #include "include/KEYPAD/keypad.c"
+#include "include/SIGNAL/signal.c"
 
 int value=0;
 
