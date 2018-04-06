@@ -8,8 +8,8 @@ Created by flo071
 #include "keypad.h"
 
 int keypadInit(){
-	DDRD  = 0b11110000;
-	PORTD = 0b00001111;
+	DDRD  = REGen;
+	PORTD = PORTen;
 }
 
 int keypad(out){
