@@ -13,7 +13,7 @@ Phase Registers need 12 Bits + 4 Control Bits
 01   010011
    01100000
 */
-#define F_CPU 10000000UL
+#define F_CPU 16000000UL
 #include <avr/io.h>
 #include <stdio.h>
 #include <util/delay.h>
