@@ -1,5 +1,8 @@
 /*
 Created by flo071
+
+Standard frequency of the generator on startup is:
+1 kHz sine
 */
 #define F_CPU 16000000UL
 #include <avr/io.h>
@@ -21,11 +24,13 @@ int setup(void) {
 	SPI_setup();
 	//Enable Keypad
 	KEYPAD_setup();
+	startup_signal();
 }
 
 int main(void) {
 	setup();
 	while (1) {
+		value = 0;
 		keypad_display_test();
 	}
 }

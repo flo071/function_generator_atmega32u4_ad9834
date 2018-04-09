@@ -24,6 +24,11 @@ Phase Registers need 12 Bits + 4 Control Bits
 #define str3 0b01010011
 #define str4 0b01100000
 
+#define stfq1 0b01000000
+#define stfq2 0b11100111
+#define stfq3 0b01010011
+#define stfq4 0b01100000
+
 int SPI_setup(void) {
 	//Setup Pins for SPI
 	DDRB  |=  (1 << PB0); 	//SlaveSelect
@@ -80,6 +85,24 @@ int frequency_set(void) {
 	PORTB |= (1 << PB7); 	//SlaveSelect set high
 }
 
+int frequency_set_startup(void) {
+	SPDR = FRQ0 | stfq1;
+	PORTB &= ~(1 << PB7); 	//SlaveSelect set low, to let ad9834 know we want to send something
+	_delay_ms(1);			//wait for SS to be set to low
+	SPCR |=  (1 << SPE); 	//SPI enable (start data tranfer)
+	_delay_ms(10);			//wait for the third 8 bit to be send
+	SPDR = FRQ0 | stfq2;
+	SPCR |=  (1 << SPE); 	//SPI enable (start data tranfer)
+	_delay_ms(10);			//wait for the third 8 bit to be send
+	SPDR = FRQ0 | stfq3;
+	SPCR |=  (1 << SPE); 	//SPI enable (start data tranfer)
+	_delay_ms(10);			//wait for the third 8 bit to be send
+	SPDR = FRQ0 | stfq4;
+	SPCR |=  (1 << SPE); 	//SPI enable (start data tranfer)
+	_delay_ms(10);
+	PORTB |= (1 << PB7); 	//SlaveSelect set high
+}
+
 int phase_set(void) {
 	SPDR = PHS0;
 	PORTB &= ~(1 << PB7); 	//SlaveSelect set low, to let ad9834 know we want to send something
@@ -126,6 +149,13 @@ int out_rect(void) {
 	SPCR |=  (1 << SPE); 	//SPI enable (start data tranfer)
 	_delay_ms(10);			//wait for the third 8 bit to be send
 	PORTB |= (1 << PB7); 	//SlaveSelect set high
+}
+
+int startup_signal(void) {
+	control_set();
+	frequency_set_startup();
+	phase_set();
+	out_sin();
 }
 
 int signal_sin(void) {
