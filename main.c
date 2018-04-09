@@ -15,17 +15,31 @@ int setup(void) {
 	//Disable JTAG
 	MCUCR =  (1 << JTD);
 	MCUCR =  (1 << JTD);
+	//Enable LCD
+	LCD_setup();
+	//Enable SPI
+	SPI_setup();
+	//Enable Keypad
+	KEYPAD_setup();
 }
 
 int main(void) {
 	setup();
-	SPI_setup();
-	LCD_setup();
-	KEYPAD_setup();
 	while (1) {
 		keypad_display_test();
 	}
 }
+
+/*int menu_layout() {
+	lcd_setcursor(0,0);
+    lcd_string("Signalform:       [A]");
+    lcd_setcursor(0,1);
+    lcd_string("Frequency:        [B]");
+    lcd_setcursor(0,2);
+    lcd_string("Amplitude:        [C]");
+    lcd_setcursor(0,3);
+    lcd_string("Offset:           [D]");
+}*/
 
 int keypad_display_test() {
 	keypad();
