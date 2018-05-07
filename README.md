@@ -1,13 +1,11 @@
-# This will be the Software for an function generator.
-
-master branch is for releases only, development happens in other branches
+# This is the Software for an function generator.
 
 ## Hardware:
 
-Atmega32u4	micro controller
+Atmega32u4 Microcontroller
 
-AD9834 		DDS Chip
+AD9834 DDS-Chip
 
-A simple 4x4 matrix keyboard
+4x4 Matrix-keypad
 
-LCD Display
+Ampire 204a-qw 20x4 LC-Display
