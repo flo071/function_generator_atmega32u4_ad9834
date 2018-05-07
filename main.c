@@ -21,14 +21,18 @@ int init(void){
 	MCUCR |=(1<<JTD);
 	MCUCR |=(1<<JTD);
 	//Set DDRD as input
-	DDRD = 0x00;
-	PORTD = 0xFF;
-	keypad_init();
+	init_test_keys();	//init test keys
+	//keypad_init();	//init keypad
 	//Start the initialisation of the actual code
 	lcd_init();		//found in lcd.c
 	_delay_ms(500);
 	menu_layout();	//found in menu.c
 	print_unit();	//found in menu.c
+}
+
+int init_test_keys(void){
+	DDRD = 0x00;	//Test keys
+	PORTD = 0xFF;	//Test keys
 }
 
 /*int test_keypad(void){
