@@ -1,5 +1,23 @@
 /*
 Created by flo071
+
+Value	Key
+  1      1
+  2      2
+  3      3
+  4      4
+  5		 5
+  6		 6
+  7	  	 7
+  8		 8
+  9 	 9
+ 10		 *
+ 11		 0
+ 12		 #
+ 20	 	 A
+ 21		 B
+ 22		 C
+ 23		 D
 */
 #include <avr/io.h>
 #include <stdio.h>
@@ -28,7 +46,7 @@ int keypad(void) {
 			out = out + 12;		//key #
 		}
 		if ((PIND | ROW4) == ROW4) {
-			out = out + 16;		//key D
+			out = out + 23;		//key D
 		}
 
 		PORTD = COLUMN2;	//column 2
@@ -42,7 +60,7 @@ int keypad(void) {
 			out = out + 9;		//key 9
 		}
 		if ((PIND | ROW4) == ROW4) {
-			out = out + 15;		//key C
+			out = out + 22;		//key C
 		}
 
 		PORTD = COLUMN3;	//column 3
@@ -56,7 +74,7 @@ int keypad(void) {
 			out = out + 6;		//key 6
 		}
 		if ((PIND | ROW4) == ROW4) {
-			out = out + 14;		//key B
+			out = out + 21;		//key B
 		}
 
 		PORTD = COLUMN4; //column 4
@@ -70,13 +88,13 @@ int keypad(void) {
 			out = out + 3;		//key 3
 		}
 		if ((PIND | ROW4) == ROW4) {
-			out = out + 13;		//key A
+			out = out + 20;		//key A
 		}
 		return out;
 	}
 	
 }
-
+/*
 int whatkey(void){
 	keypad();
 	switch(out){
@@ -97,4 +115,4 @@ int whatkey(void){
 		case 15: lcd_clr_line(1); lcd_setcursor(0,1); lcd_string("C"); break;
 		case 16: lcd_clr_line(1); lcd_setcursor(0,1); lcd_string("D"); break;
 	}
-}
+}*/

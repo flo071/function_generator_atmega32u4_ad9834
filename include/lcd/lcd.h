@@ -26,10 +26,10 @@
 #define LCD_DB        PF4
  
 //  LCD RS      <-->  PORTD Bit PD4     (RS: 1=Data, 0=Command)
-#define LCD_RS        PF0
+#define LCD_RS        PF1
  
 //  LCD EN      <-->  PORTD Bit PD5     (EN: 1-Impuls für Daten)
-#define LCD_EN        PF1
+#define LCD_EN        PF0
 //edits end here
 ////////////////////////////////////////////////////////////////////////////////
 

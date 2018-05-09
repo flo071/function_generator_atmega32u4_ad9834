@@ -14,16 +14,18 @@
 //start changes by flo071
 int lcd_clr_line(uint8_t li){
     switch(li){
-        case 1: lcd_setcursor(7,li);  lcd_string("            "); break;
-        case 2: lcd_setcursor(10,li); lcd_string("      ");       break;
-        case 3: lcd_setcursor(10,li); lcd_string("      ");       break;
-        case 4: lcd_setcursor(7,li);  lcd_string("         ");    break;
+        case 1: lcd_setcursor(8,li);  lcd_string("         "); break;
+        case 2: lcd_setcursor(11,li); lcd_string("    ");       break;
+        case 3: lcd_setcursor(11,li); lcd_string("   ");       break;
+        case 4: lcd_setcursor(8,li);  lcd_string("      ");    break;
     }
 }
 
 int setcursor(uint8_t cls){
     lcd_setcursor(19,cls);
-    lcd_string("<");
+    lcd_string("]");
+    lcd_setcursor(17,cls);
+    lcd_string("[");
 }
 
 int setcursor_sel(uint8_t clss){
@@ -33,6 +35,8 @@ int setcursor_sel(uint8_t clss){
 
 int del_cursor(uint8_t cld){
     lcd_setcursor(19,cld);
+    lcd_string(" ");
+    lcd_setcursor(17,cld);
     lcd_string(" ");
 }
 //end changes by flo071
